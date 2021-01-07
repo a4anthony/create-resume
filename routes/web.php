@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', \App\Http\Livewire\Home::class)->name('home');
+Route::get('/create', \App\Http\Livewire\Resume::class)->name('home');
+Route::get('/create-resume', [\App\Http\Controllers\ResumeController::class, 'generatePDF'])->name('create-resume');
+//Route::group(['middleware'=>'guest'], function () {
+//    Route::livewire('/login', 'login')->name('login');
+//    Route::livewire('/register', 'register');
+//});
